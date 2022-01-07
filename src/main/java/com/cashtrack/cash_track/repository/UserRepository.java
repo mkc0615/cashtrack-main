@@ -14,4 +14,6 @@ public interface UserRepository {
 
     public int insertUser();
 
+    public int deleteUser();
+
 }

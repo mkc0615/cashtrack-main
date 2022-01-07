@@ -30,4 +30,10 @@ public class RegisterRepository implements UserRepository{
         return resultInt;
     }
 
+    @Override
+    public int deleteUser(){
+        int resultInt = 0;
+        return resultInt;
+    }
+
 }

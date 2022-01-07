@@ -12,4 +12,8 @@ public interface AccountRepository {
 
     public List<Account> findAll();
 
+    public int insertAccount();
+
+    public int deleteAccount();
+
 }
