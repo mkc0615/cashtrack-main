@@ -25,6 +25,13 @@ public class MyPageService {
         return resultInt;
     }
 
+    // Modify account
+    public int modifyAccount(){
+        Account account = new Account();
+        int resultInt = accountRepository.updateAccount();
+        return resultInt;
+    }
+
     // withdraw account
     public int deleteAccount(){
         int resultInt = accountRepository.deleteAccount();

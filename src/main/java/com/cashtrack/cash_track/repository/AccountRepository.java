@@ -14,6 +14,8 @@ public interface AccountRepository {
 
     public int insertAccount();
 
+    public int updateAccount();
+
     public int deleteAccount();
 
 }
