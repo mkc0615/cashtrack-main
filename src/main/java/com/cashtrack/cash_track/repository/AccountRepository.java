@@ -1,6 +1,7 @@
 package com.cashtrack.cash_track.repository;
 
 import com.cashtrack.cash_track.domain.Account;
+import com.cashtrack.cash_track.domain.MyBond;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,5 +18,7 @@ public interface AccountRepository {
     public int updateAccount();
 
     public int deleteAccount();
+
+    public List<MyBond> bondList();
 
 }

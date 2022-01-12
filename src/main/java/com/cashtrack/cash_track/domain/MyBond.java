@@ -1,6 +1,5 @@
 package com.cashtrack.cash_track.domain;
 
-
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 

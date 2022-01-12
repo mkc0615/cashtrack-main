@@ -1,6 +1,7 @@
 package com.cashtrack.cash_track.service;
 
 import com.cashtrack.cash_track.domain.Account;
+import com.cashtrack.cash_track.domain.MyBond;
 import com.cashtrack.cash_track.repository.AccountRepository;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +37,13 @@ public class MyPageService {
     public int deleteAccount(){
         int resultInt = accountRepository.deleteAccount();
         return resultInt;
+    }
+
+    // bond list
+    public List<MyBond> bondList(){
+        List<MyBond> myBonds = accountRepository.bondList();
+
+        return myBonds;
     }
 
 }
