@@ -19,6 +19,4 @@ public interface AccountRepository {
 
     public int deleteAccount();
 
-    public List<MyBond> bondList();
-
 }

@@ -1,8 +1,10 @@
 package com.cashtrack.cash_track.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
+@Entity
 public class MyBond {
 
     @Id

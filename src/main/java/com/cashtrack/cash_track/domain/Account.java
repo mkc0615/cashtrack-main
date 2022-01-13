@@ -15,6 +15,7 @@ public class Account {
     private String bankname;
 
     private int amount;
+
     private Long rate;
 
     private LocalDateTime inputDate;
