@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 public class MyBond {
 
     @Id
-    private int seq;
+    private int bondNo;
 
     private int entry;
 
