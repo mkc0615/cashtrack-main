@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.List;
 
@@ -17,15 +18,11 @@ import java.util.List;
 public class MyPageController {
 
     @Autowired
-    MyPageService myPageService;
+    private RestTemplate restTemplate;
 
     @Autowired
-    TrackService trackService;
+    private WebClient.Builder webClientBuilder;
 
-    @Autowired
-    StockService stockService;
-
-    RestTemplate restTemplate = new RestTemplate();
 
     @RequestMapping("/myPage")
     public String myPage(@RequestBody String param){
@@ -44,9 +41,19 @@ public class MyPageController {
     // 예적금
     @GetMapping("/MySavings")
     public SaveAccount getAccountList(){
+        // use RestTemplate
+        SaveAccount saveAccount = restTemplate.getForObject("https://localhost:8082/savings/mine", SaveAccount.class);
 
-        return restTemplate.getForObject("https://localhost:8082/savings/mine", SaveAccount.class);
-
+        // use WebClient Builder
+        /* case of async
+        SaveAccount saveAccount = webClientBuilder.build()
+                .get()
+                .uri("https://localhost:8082/savings/mine")
+                .retrieve()
+                .bodyToMono(SaveAccount.class) // MEANS ::: in async, this object will eventually come!
+                .block(); // MEANS ::: this blocks the method from finishing until we get the result object
+                */
+        return saveAccount;
     }
 
     // 주식
