@@ -1,12 +1,13 @@
 package com.cashtrack.cash_track.domain;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Stock {
 
     @Id
@@ -27,10 +28,6 @@ public class Stock {
     private LocalDateTime sellDate;
 
     private LocalDateTime inputDate;
-
-    public Stock(){
-
-    }
 
     public Stock(int stockNo, int userId, String market, int price, int volume, LocalDateTime buyDate, LocalDateTime sellDate, LocalDateTime inputDate) {
         this.stockNo = stockNo;

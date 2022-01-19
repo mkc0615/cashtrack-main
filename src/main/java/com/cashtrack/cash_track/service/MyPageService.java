@@ -1,9 +1,7 @@
 package com.cashtrack.cash_track.service;
 
-import com.cashtrack.cash_track.domain.Account;
-import com.cashtrack.cash_track.domain.MyBond;
+import com.cashtrack.cash_track.domain.SaveAccount;
 import com.cashtrack.cash_track.repository.AccountRepository;
-import com.cashtrack.cash_track.repository.BondRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,24 +12,9 @@ public class MyPageService {
     AccountRepository accountRepository;
 
     // Get accounts
-    public List<Account> getAccountList(){
-        List<Account> resultList = accountRepository.findAll();
+    public List<SaveAccount> getAccountList(){
+        List<SaveAccount> resultList = accountRepository.findAll();
         return resultList;
-    }
-
-    // Add account
-    public int addNewAccount(){
-        Account account = new Account();
-
-        int resultInt = accountRepository.insertAccount();
-        return resultInt;
-    }
-
-    // Modify account
-    public int modifyAccount(){
-        Account account = new Account();
-        int resultInt = accountRepository.updateAccount();
-        return resultInt;
     }
 
     // withdraw account

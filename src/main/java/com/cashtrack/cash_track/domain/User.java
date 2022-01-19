@@ -3,7 +3,6 @@ package com.cashtrack.cash_track.domain;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.sql.Array;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,22 +20,28 @@ public class User {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 
-    @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-    private List<Account> myAccounts = new ArrayList<>();
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<SaveAccount> myAccounts = new ArrayList<>();
 
     @OneToMany(mappedBy = "stock", cascade = CascadeType.ALL)
     private List<Stock> myStocks = new ArrayList<>();
 
     @OneToMany(mappedBy = "bonds", cascade = CascadeType.ALL)
-    private List<MyBond> myBonds = new ArrayList<>();
+    private List<Loan> myBonds = new ArrayList<>();
 
     private LocalDateTime inputDate;
 
-    public User(int userNo, String userPw, LocalDateTime startDate, LocalDateTime endDate, LocalDateTime inputDate) {
-        this.userNo = userNo;
-        this.userPw = userPw;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.inputDate = inputDate;
+    public void addAccount(SaveAccount account){
+
     }
+
+    public void addStock(Stock stock){
+
+    }
+
+    public void addBond(Loan mybond){
+
+    }
+
+
 }

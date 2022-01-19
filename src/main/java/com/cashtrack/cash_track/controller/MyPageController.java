@@ -1,8 +1,6 @@
 package com.cashtrack.cash_track.controller;
 
-import com.cashtrack.cash_track.domain.Account;
-import com.cashtrack.cash_track.domain.MyBond;
-import com.cashtrack.cash_track.domain.Stock;
+import com.cashtrack.cash_track.domain.SaveAccount;
 import com.cashtrack.cash_track.service.MyPageService;
 import com.cashtrack.cash_track.service.StockService;
 import com.cashtrack.cash_track.service.TrackService;
@@ -11,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -26,6 +25,8 @@ public class MyPageController {
     @Autowired
     StockService stockService;
 
+    RestTemplate restTemplate = new RestTemplate();
+
     @RequestMapping("/myPage")
     public String myPage(@RequestBody String param){
         String resultStr = "";
@@ -40,58 +41,26 @@ public class MyPageController {
         return resultStr;
     }
 
-    // Account management
-    @RequestMapping("/addAccount")
-    public String addAccount(){
-        String resultStr;
+    // 예적금
+    @GetMapping("/MySavings")
+    public SaveAccount getAccountList(){
 
-        int resultInt = myPageService.addNewAccount();
-        if(resultInt != 0){
-            resultStr = "success";
-        }else{
-            resultStr = "error";
-        }
+        return restTemplate.getForObject("https://localhost:8082/savings/mine", SaveAccount.class);
 
-        return resultStr;
     }
 
-    @RequestMapping("/deleteAccount")
-    public String deleteAccount(){
-        String resultStr = "";
-
-        int resultInt = myPageService.deleteAccount();
-        if(resultInt != 0){
-            resultStr = "success";
-        }else{
-            resultStr = "error";
-        }
-
-        return resultStr;
-    }
-
-    @GetMapping("/accounts")
-    public String getAccountList(){
-        String resultStr = "";
-
-        List<Account> accountList = myPageService.getAccountList();
-
-        return resultStr;
-    }
-
-    @GetMapping("/stocks")
+    // 주식
+    @GetMapping("/myStocks")
     public String getAssetInfo(){
         String resultStr = "";
 
-        List<Stock> stockList = stockService.stockList();
-
         return resultStr;
     }
 
-    @GetMapping("/tracks")
+    // 대출 및 할부
+    @GetMapping("/myLoans")
     public String getTrackInfo(){
         String resultStr = "";
-
-        List<MyBond> bondList = trackService.bondList();
 
         return resultStr;
     }

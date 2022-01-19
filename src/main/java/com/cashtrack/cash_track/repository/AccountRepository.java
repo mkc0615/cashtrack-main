@@ -1,7 +1,6 @@
 package com.cashtrack.cash_track.repository;
 
-import com.cashtrack.cash_track.domain.Account;
-import com.cashtrack.cash_track.domain.MyBond;
+import com.cashtrack.cash_track.domain.SaveAccount;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -9,9 +8,9 @@ import java.util.List;
 @Repository
 public interface AccountRepository {
 
-    public Account findOne();
+    public SaveAccount findOne();
 
-    public List<Account> findAll();
+    public List<SaveAccount> findAll();
 
     public int insertAccount();
 

@@ -1,6 +1,6 @@
 package com.cashtrack.cash_track.service;
 
-import com.cashtrack.cash_track.domain.MyBond;
+import com.cashtrack.cash_track.domain.Loan;
 import com.cashtrack.cash_track.repository.BondRepository;
 import org.springframework.stereotype.Service;
 
@@ -27,8 +27,8 @@ public class TrackService {
     }
 
     // bond list
-    public List<MyBond> bondList(){
-        List<MyBond> myBonds = bondRepository.findAll();
+    public List<Loan> bondList(){
+        List<Loan> myBonds = bondRepository.findAll();
         return myBonds;
     }
 

@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
-public class MyBond {
+public class Loan {
 
     @Id
     @GeneratedValue
@@ -28,7 +28,7 @@ public class MyBond {
 
     private LocalDateTime expireTime;
 
-    public MyBond(int bondNo, int userId, int entry, int amount, double interestRate, int interestAmount, LocalDateTime lendTime, LocalDateTime expireTime) {
+    public Loan(int bondNo, int userId, int entry, int amount, double interestRate, int interestAmount, LocalDateTime lendTime, LocalDateTime expireTime) {
         this.bondNo = bondNo;
         this.userId = userId;
         this.entry = entry;
