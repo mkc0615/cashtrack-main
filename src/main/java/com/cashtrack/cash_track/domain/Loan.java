@@ -13,8 +13,8 @@ public class Loan {
     @GeneratedValue
     private int bondNo;
 
-    @ManyToOne(fetch= FetchType.LAZY)
-    private int userId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private User user;
 
     private int entry;
 
@@ -28,14 +28,4 @@ public class Loan {
 
     private LocalDateTime expireTime;
 
-    public Loan(int bondNo, int userId, int entry, int amount, double interestRate, int interestAmount, LocalDateTime lendTime, LocalDateTime expireTime) {
-        this.bondNo = bondNo;
-        this.userId = userId;
-        this.entry = entry;
-        this.amount = amount;
-        this.interestRate = interestRate;
-        this.interestAmount = interestAmount;
-        this.lendTime = lendTime;
-        this.expireTime = expireTime;
-    }
 }

@@ -2,6 +2,9 @@ package com.cashtrack.cash_track;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.client.reactive.ClientHttpConnector;
@@ -20,17 +23,19 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class CashTrackApplication {
 
 	@Bean
+	@LoadBalanced
 	public RestTemplate getRestTemplate(){
 		return new RestTemplate();
 	}
 
-	@Bean
-	public WebClient.Builder getWebClientBuilder(){
-		return WebClient.builder();
-	}
+//	@Bean
+//	public WebClient.Builder getWebClientBuilder(){
+//		return WebClient.builder();
+//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(CashTrackApplication.class, args);

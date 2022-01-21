@@ -1,28 +1,28 @@
 package com.cashtrack.cash_track.domain;
 
-import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
+@Setter
+@NoArgsConstructor
 public class SaveAccount {
 
     @Id
     @GeneratedValue
     private int accNo;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)
     private User user;
 
-    private String bankname;
+    private String bankName;
     private int amount;
-    private Long rate;
+    private double rate;
     private LocalDateTime inputDate;
-
-    // === Define relationships === //
-
 
 }

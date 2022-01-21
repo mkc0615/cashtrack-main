@@ -1,12 +1,14 @@
 package com.cashtrack.cash_track.domain;
 
 import lombok.AccessLevel;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Stock {
 
@@ -15,7 +17,7 @@ public class Stock {
     private int stockNo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private int userId;
+    private User user;
 
     private String market;
 
@@ -29,14 +31,4 @@ public class Stock {
 
     private LocalDateTime inputDate;
 
-    public Stock(int stockNo, int userId, String market, int price, int volume, LocalDateTime buyDate, LocalDateTime sellDate, LocalDateTime inputDate) {
-        this.stockNo = stockNo;
-        this.userId = userId;
-        this.market = market;
-        this.price = price;
-        this.volume = volume;
-        this.buyDate = buyDate;
-        this.sellDate = sellDate;
-        this.inputDate = inputDate;
-    }
 }

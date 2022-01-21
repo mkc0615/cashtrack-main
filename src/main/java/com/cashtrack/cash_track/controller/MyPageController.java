@@ -40,9 +40,20 @@ public class MyPageController {
 
     // 예적금
     @GetMapping("/MySavings")
-    public SaveAccount getAccountList(){
+    public String getAccountList(){
         // use RestTemplate
-        SaveAccount saveAccount = restTemplate.getForObject("https://localhost:8082/savings/mine", SaveAccount.class);
+        SaveAccount saveAccount = restTemplate.getForObject("http://cashtrack-savings/savings/mine", SaveAccount.class);
+
+        String resultStr = "";
+
+        if(saveAccount == null){
+
+            resultStr = "its null for now";
+
+        }else{
+
+            resultStr = saveAccount.toString();
+        }
 
         // use WebClient Builder
         /* case of async
@@ -53,7 +64,7 @@ public class MyPageController {
                 .bodyToMono(SaveAccount.class) // MEANS ::: in async, this object will eventually come!
                 .block(); // MEANS ::: this blocks the method from finishing until we get the result object
                 */
-        return saveAccount;
+        return resultStr;
     }
 
     // 주식
