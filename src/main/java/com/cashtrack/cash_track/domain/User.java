@@ -22,15 +22,6 @@ public class User {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 
-    @OneToMany(mappedBy = "user")
-    List<SaveAccount> accountList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user")
-    List<Stock> stockList = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user")
-    List<Loan> loanList = new ArrayList<>();
-
     private LocalDateTime inputDate;
 
 }

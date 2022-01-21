@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
@@ -17,7 +18,7 @@ public class Stock {
     private int stockNo;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+    private Book book;
 
     private String market;
 
@@ -31,4 +32,21 @@ public class Stock {
 
     private LocalDateTime inputDate;
 
+    // 내부 생성자 메서드
+    public void createStockEntry(String market,
+                                int price,
+                                int volume,
+                                String buyDateStr,
+                                String sellDateStr
+                                ){
+        this.market=market;
+        this.price=price;
+        this.volume = volume;
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        this.buyDate = LocalDateTime.parse(buyDateStr, dtf);
+        this.sellDate = LocalDateTime.parse(sellDateStr, dtf);
+        this.inputDate = LocalDateTime.now();
+    }
 }

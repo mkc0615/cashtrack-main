@@ -6,10 +6,10 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor
 public class SaveAccount {
 
@@ -20,9 +20,21 @@ public class SaveAccount {
     @ManyToOne(fetch=FetchType.LAZY)
     private User user;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Book book;
+
     private String bankName;
     private int amount;
     private double rate;
     private LocalDateTime inputDate;
+
+    // 내부 생성자 메서드
+    public void createSaveAccEntry(String bankName,
+                                int amount,
+                                double rate){
+        this.bankName=bankName;
+        this.amount=amount;
+        this.rate = rate;
+    }
 
 }
