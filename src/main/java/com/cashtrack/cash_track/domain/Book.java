@@ -1,15 +1,21 @@
 package com.cashtrack.cash_track.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Entity
+@Getter
 @NoArgsConstructor
 public class Book {
 
     @Id
+    @GeneratedValue
     private int bookNo;
 
     @OneToOne(fetch = FetchType.LAZY)
@@ -24,4 +30,15 @@ public class Book {
     @OneToMany(mappedBy = "book")
     private List<Loan> loanList = new ArrayList<>();
 
+    // 내부 생성자 메서드
+    public void createBookEntry(User user,
+                                 List<SaveAccount> accountList,
+                                 List<Stock> stockList,
+                                 List<Loan> loanList
+                                 ){
+        this.user=user;
+        this.accountList=accountList;
+        this.stockList = stockList;
+        this.loanList = loanList;
+    }
 }

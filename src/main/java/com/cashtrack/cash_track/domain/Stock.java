@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -21,23 +22,17 @@ public class Stock {
     private Book book;
 
     private String market;
-
     private int price;
-
     private int volume;
-
-    private LocalDateTime buyDate;
-
-    private LocalDateTime sellDate;
-
-    private LocalDateTime inputDate;
+    private LocalDate buyDate;
+    private LocalDate sellDate;
+    private LocalDate inputDate;
 
     // 내부 생성자 메서드
     public void createStockEntry(String market,
                                 int price,
                                 int volume,
-                                String buyDateStr,
-                                String sellDateStr
+                                String buyDateStr
                                 ){
         this.market=market;
         this.price=price;
@@ -45,8 +40,7 @@ public class Stock {
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        this.buyDate = LocalDateTime.parse(buyDateStr, dtf);
-        this.sellDate = LocalDateTime.parse(sellDateStr, dtf);
-        this.inputDate = LocalDateTime.now();
+        this.buyDate = LocalDate.parse(buyDateStr, dtf);
+        this.inputDate = LocalDate.now();
     }
 }

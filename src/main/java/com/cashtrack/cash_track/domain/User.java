@@ -4,7 +4,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,11 +19,25 @@ public class User {
     @GeneratedValue
     private int userNo;
 
+    private String userId;
     private String userPw;
 
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    private LocalDateTime inputDate;
+    private LocalDate inputDate;
 
+    // 내부 생성자 메서드
+    public void createUser(String userId,
+                           String userPw,
+                           String startDateStr
+                          ){
+        this.userId = userId;
+        this.userPw = userPw;
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        this.startDate = LocalDate.parse(startDateStr, dtf);
+        this.inputDate = LocalDate.now();
+    }
 }

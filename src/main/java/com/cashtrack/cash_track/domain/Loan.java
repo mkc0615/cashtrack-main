@@ -1,12 +1,15 @@
 package com.cashtrack.cash_track.domain;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 @Entity
+@Getter
 @NoArgsConstructor
 public class Loan {
 
@@ -21,16 +24,16 @@ public class Loan {
     private int amount;
     private double interestRate;
     private int interestAmount;
-    private LocalDateTime lendTime;
-    private LocalDateTime expireTime;
+    private LocalDate lendTime;
+    private LocalDate expireTime;
 
     // 내부 생성자 메서드
     public void createLoanEntry(int entry,
                                 int amount,
                                 double interestRate,
                                 int interestAmount,
-                                String lendTimeStr,
-                                String expireTimeStr){
+                                String lendTimeStr
+                                ){
         this.entry=entry;
         this.amount=amount;
         this.interestRate = interestRate;
@@ -38,7 +41,6 @@ public class Loan {
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
-        this.lendTime = LocalDateTime.parse(lendTimeStr, dtf);
-        this.expireTime = LocalDateTime.parse(expireTimeStr, dtf);
+        this.lendTime = LocalDate.parse(lendTimeStr, dtf);
     }
 }

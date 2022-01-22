@@ -1,10 +1,12 @@
 package com.cashtrack.cash_track.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -26,15 +28,15 @@ public class SaveAccount {
     private String bankName;
     private int amount;
     private double rate;
-    private LocalDateTime inputDate;
+    private LocalDate inputDate;
 
     // 내부 생성자 메서드
     public void createSaveAccEntry(String bankName,
                                 int amount,
-                                double rate){
+                                double rate
+                                ){
         this.bankName=bankName;
         this.amount=amount;
         this.rate = rate;
     }
-
 }
