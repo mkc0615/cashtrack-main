@@ -12,7 +12,7 @@ public class CommonService {
 
     // json to hashmap
     public HashMap<String, Object> jsonToString(String params){
-        HashMap<String, Object> resultMap = new HashMap<>();
+        HashMap<String, Object> resultMap = new HashMap<String, Object>();
         ObjectMapper mapper = new ObjectMapper();
 
         try{
