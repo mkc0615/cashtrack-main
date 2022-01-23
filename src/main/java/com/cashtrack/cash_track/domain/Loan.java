@@ -18,6 +18,7 @@ public class Loan {
     private int bondNo;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="bookNo")
     private Book book;
 
     private int entry;

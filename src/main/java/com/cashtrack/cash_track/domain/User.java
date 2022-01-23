@@ -40,4 +40,16 @@ public class User {
         this.startDate = LocalDate.parse(startDateStr, dtf);
         this.inputDate = LocalDate.now();
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userNo=" + userNo +
+                ", userId='" + userId + '\'' +
+                ", userPw='" + userPw + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", inputDate=" + inputDate +
+                '}';
+    }
 }

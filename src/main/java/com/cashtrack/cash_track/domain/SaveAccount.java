@@ -1,14 +1,10 @@
 package com.cashtrack.cash_track.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
@@ -19,7 +15,7 @@ public class SaveAccount {
     @GeneratedValue
     private int accNo;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)

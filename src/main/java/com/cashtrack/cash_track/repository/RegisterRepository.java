@@ -1,22 +1,25 @@
 package com.cashtrack.cash_track.repository;
 
 import com.cashtrack.cash_track.domain.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class RegisterRepository implements UserRepository{
+@RequiredArgsConstructor
+public class RegisterRepository{
 
-    @Override
+    private final EntityManager em;
+
     public User findOne(){
         User thisUser = new User();
         return thisUser;
     }
 
-    @Override
     public List<User> findAll(){
         User thisUser = new User();
         List<User> thisList = new ArrayList<>();
@@ -24,13 +27,11 @@ public class RegisterRepository implements UserRepository{
         return thisList;
     }
 
-    @Override
-    public int insertUser(){
-        int resultInt = 0;
-        return resultInt;
+    public int insertUser(User user){
+        em.persist(user);
+        return user.getUserNo();
     }
 
-    @Override
     public int deleteUser(){
         int resultInt = 0;
         return resultInt;

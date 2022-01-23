@@ -19,6 +19,7 @@ public class Stock {
     private int stockNo;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="bookNo")
     private Book book;
 
     private String market;

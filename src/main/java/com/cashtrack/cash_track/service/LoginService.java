@@ -11,13 +11,17 @@ public class LoginService {
 
     public int loginCheck(User user){
 
-        int resultInt = 0;
-
         User thisUser = userRepository.findOne();
 
-        // user check
+        if(user.getUserNo() != thisUser.getUserNo()){
+            return 1;
+        }else if(user.getUserId() != thisUser.getUserId()){
+            return 1;
+        }else if(user.getUserPw() != thisUser.getUserPw()){
+            return 1;
+        }
 
-        return resultInt;
+        return 0;
     }
 
 }

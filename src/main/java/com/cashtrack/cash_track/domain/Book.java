@@ -1,12 +1,9 @@
 package com.cashtrack.cash_track.domain;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Entity
@@ -16,6 +13,7 @@ public class Book {
 
     @Id
     @GeneratedValue
+    @Column(name = "bookNo")
     private int bookNo;
 
     @OneToOne(fetch = FetchType.LAZY)
