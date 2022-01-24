@@ -1,5 +1,6 @@
-package com.cashtrack.cash_track.domain;
+package com.cashtrack.cash_track.domain.api;
 
+import com.cashtrack.cash_track.domain.Book;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +12,6 @@ import java.time.format.DateTimeFormatter;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Stock {
 
     @Id

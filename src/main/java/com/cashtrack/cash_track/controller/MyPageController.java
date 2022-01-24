@@ -17,6 +17,7 @@ public class MyPageController {
     MyPageService pageService;
 
     @GetMapping("/book")
+    @CrossOrigin("*")
     public Book myPage(){
         return pageService.getMyBook();
     }

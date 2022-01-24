@@ -1,16 +1,12 @@
 package com.cashtrack.cash_track.service;
 
 import com.cashtrack.cash_track.domain.*;
-import com.cashtrack.cash_track.domain.api.UserLoanList;
-import com.cashtrack.cash_track.domain.api.UserSavingList;
-import com.cashtrack.cash_track.domain.api.UserStockList;
-import com.cashtrack.cash_track.repository.AccountRepository;
+import com.cashtrack.cash_track.domain.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

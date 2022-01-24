@@ -1,6 +1,6 @@
 package com.cashtrack.cash_track.repository;
 
-import com.cashtrack.cash_track.domain.SaveAccount;
+import com.cashtrack.cash_track.domain.api.SaveAccount;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

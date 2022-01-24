@@ -2,7 +2,6 @@ package com.cashtrack.cash_track.repository;
 
 import com.cashtrack.cash_track.domain.User;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

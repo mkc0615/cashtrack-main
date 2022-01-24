@@ -1,5 +1,6 @@
-package com.cashtrack.cash_track.domain;
+package com.cashtrack.cash_track.domain.api;
 
+import com.cashtrack.cash_track.domain.Book;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

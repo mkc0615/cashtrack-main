@@ -1,6 +1,5 @@
 package com.cashtrack.cash_track.domain.api;
 
-import com.cashtrack.cash_track.domain.Loan;
 import lombok.Getter;
 
 import java.util.ArrayList;
