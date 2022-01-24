@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 
 @Service
@@ -52,4 +53,9 @@ public class MyPageService {
         return response.getBody().getLoanList();
     }
 
+    public InfoSheet getInvestInfo() {
+        InfoSheet info = new InfoSheet();
+
+        return info;
+    }
 }

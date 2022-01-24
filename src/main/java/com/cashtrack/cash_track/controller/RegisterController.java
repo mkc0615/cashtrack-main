@@ -26,5 +26,4 @@ public class RegisterController {
         HashMap<String, Object> paramsMap = cmmService.jsonToString(param);
         registerService.joinMember(paramsMap);
     }
-
 }

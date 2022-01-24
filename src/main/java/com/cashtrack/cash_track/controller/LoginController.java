@@ -21,7 +21,7 @@ public class LoginController {
     @Autowired
     CommonService cmmService;
 
-    @RequestMapping("login")
+    @RequestMapping("/login")
     public String loginSequence(@RequestBody String param, HttpServletRequest request, Model model){
 
         HashMap<String, Object> thisUser = cmmService.jsonToString(param);

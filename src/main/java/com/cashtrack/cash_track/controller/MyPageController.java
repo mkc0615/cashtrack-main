@@ -1,6 +1,7 @@
 package com.cashtrack.cash_track.controller;
 
 import com.cashtrack.cash_track.domain.Book;
+import com.cashtrack.cash_track.domain.InfoSheet;
 import com.cashtrack.cash_track.service.MyPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,12 @@ public class MyPageController {
     @CrossOrigin("*")
     public Book myPage(){
         return pageService.getMyBook();
+    }
+
+    @GetMapping("/investInfo")
+    @CrossOrigin("*")
+    public InfoSheet myInfoSheet(){
+        return pageService.getInvestInfo();
     }
 
     // use WebClient Builder
