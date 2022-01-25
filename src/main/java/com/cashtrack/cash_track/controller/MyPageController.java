@@ -2,6 +2,9 @@ package com.cashtrack.cash_track.controller;
 
 import com.cashtrack.cash_track.domain.Book;
 import com.cashtrack.cash_track.domain.InfoSheet;
+import com.cashtrack.cash_track.domain.api.Loan;
+import com.cashtrack.cash_track.domain.api.SaveAccount;
+import com.cashtrack.cash_track.domain.api.Stock;
 import com.cashtrack.cash_track.service.MyPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,22 +20,36 @@ public class MyPageController {
     @Autowired
     MyPageService pageService;
 
+    // 기록부 가져오기
     @GetMapping("/book")
     @CrossOrigin("*")
     public Book myPage(){
-        return pageService.getMyBook();
+        int userNo = 1;
+        return pageService.getMyBook(1);
     }
 
-    @PostMapping("/addSavings")
+    // 예적금 추가
+    @PostMapping("/saving/add")
     public int insertSavings(){
-        int resultInt = 0;
-        return resultInt;
+        SaveAccount newSaving = new SaveAccount();
+        newSaving.createSaveAccEntry("bankname",4000000, 0.50); // placeholder
+        return pageService.addAccount(newSaving);
     }
 
-    @PostMapping("/addLoans")
+    // 주식 추가
+    @PostMapping("/stock/add")
+    public int insertStocks(){
+        Stock newStock = new Stock();
+        newStock.createStockEntry("marketnm", 200000, 10, "2022-01-25"); // placeholder
+        return pageService.addStock(newStock);
+    }
+
+    // 대출 및 할부 추가
+    @PostMapping("/loan/add")
     public int insertLoans(){
-        int resultInt = 0;
-        return resultInt;
+        Loan newLoan = new Loan();
+        newLoan.createLoanEntry(1, 500000, 0.08, 200000, "2022-01-25"); // placeholder
+        return pageService.addLoan(newLoan);
     }
 
     @GetMapping("/investInfo")
