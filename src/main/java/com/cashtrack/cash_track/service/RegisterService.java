@@ -1,11 +1,7 @@
 package com.cashtrack.cash_track.service;
 
 import com.cashtrack.cash_track.domain.User;
-import com.cashtrack.cash_track.repository.RegisterRepository;
 import com.cashtrack.cash_track.repository.UserRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,7 +14,7 @@ import java.util.HashMap;
 public class RegisterService {
 
     @Autowired
-    RegisterRepository registerRepository;
+    UserRepository userRepository;
 
     // Join member
     @Transactional
@@ -34,18 +30,18 @@ public class RegisterService {
                            param.get("userPw").toString(),
                            thisDate);
 
-        int resultInt = registerRepository.insertUser(newUser);
+        int resultInt = userRepository.insertUser(newUser);
 
         return resultInt;
     }
 
     // Modify member
     public int modifyMember(){
-        User thisUser = registerRepository.findOne();
+        User thisUser = userRepository.findOne();
 
         // modify set user
 
-        int resultInt = registerRepository.insertUser(thisUser);
+        int resultInt = userRepository.insertUser(thisUser);
         return resultInt;
     }
 

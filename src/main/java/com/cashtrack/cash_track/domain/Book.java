@@ -9,26 +9,16 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.*;
 
-@Entity
 @Getter
 @NoArgsConstructor
 public class Book {
 
-    @Id
-    @GeneratedValue
-    @Column(name = "bookNo")
-    private int bookNo;
-
-    @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @OneToMany(mappedBy = "book")
     private List<SaveAccount> accountList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "book")
     private List<Stock> stockList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "book")
     private List<Loan> loanList = new ArrayList<>();
 
     // 내부 생성자 메서드

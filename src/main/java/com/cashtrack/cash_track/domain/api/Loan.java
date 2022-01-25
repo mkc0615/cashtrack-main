@@ -9,19 +9,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@Entity
 @Getter
 @NoArgsConstructor
 public class Loan {
 
-    @Id
-    @GeneratedValue
     private int bondNo;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="bookNo")
-    private Book book;
-
+    private int userNo;
     private int entry;
     private int amount;
     private double interestRate;
@@ -31,10 +24,10 @@ public class Loan {
 
     // 내부 생성자 메서드
     public void createLoanEntry(int entry,
-                                int amount,
-                                double interestRate,
-                                int interestAmount,
-                                String lendTimeStr
+                                    int amount,
+                                    double interestRate,
+                                    int interestAmount,
+                                    String lendTimeStr
                                 ){
         this.entry=entry;
         this.amount=amount;

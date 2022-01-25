@@ -23,6 +23,18 @@ public class MyPageController {
         return pageService.getMyBook();
     }
 
+    @PostMapping("/addSavings")
+    public int insertSavings(){
+        int resultInt = 0;
+        return resultInt;
+    }
+
+    @PostMapping("/addLoans")
+    public int insertLoans(){
+        int resultInt = 0;
+        return resultInt;
+    }
+
     @GetMapping("/investInfo")
     @CrossOrigin("*")
     public InfoSheet myInfoSheet(){

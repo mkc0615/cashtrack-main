@@ -10,18 +10,12 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@Entity
 @Getter
+@NoArgsConstructor
 public class Stock {
 
-    @Id
-    @GeneratedValue
     private int stockNo;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="bookNo")
-    private Book book;
-
+    private int userNo;
     private String market;
     private int price;
     private int volume;
@@ -31,9 +25,9 @@ public class Stock {
 
     // 내부 생성자 메서드
     public void createStockEntry(String market,
-                                int price,
-                                int volume,
-                                String buyDateStr
+                                    int price,
+                                    int volume,
+                                    String buyDateStr
                                 ){
         this.market=market;
         this.price=price;
