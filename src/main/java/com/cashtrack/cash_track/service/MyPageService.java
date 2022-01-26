@@ -17,8 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MyPageService {
 
-    @Autowired
-    RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     // Get Book
     public Book getMyBook(int userNo){

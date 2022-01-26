@@ -2,6 +2,7 @@ package com.cashtrack.cash_track.service;
 
 import com.cashtrack.cash_track.domain.User;
 import com.cashtrack.cash_track.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,13 +12,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 
 @Service
+@Transactional
+@RequiredArgsConstructor
 public class RegisterService {
 
-    @Autowired
     UserRepository userRepository;
 
     // Join member
-    @Transactional
     public int joinMember(HashMap<String, Object> param){
 
         // set user

@@ -2,12 +2,14 @@ package com.cashtrack.cash_track.service;
 
 import com.cashtrack.cash_track.domain.User;
 import com.cashtrack.cash_track.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class LoginService {
 
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public int loginCheck(User user){
 
