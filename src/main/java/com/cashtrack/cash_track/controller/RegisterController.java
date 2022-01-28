@@ -1,5 +1,7 @@
 package com.cashtrack.cash_track.controller;
 
+import com.cashtrack.cash_track.domain.User;
+import com.cashtrack.cash_track.domain.UserSheet;
 import com.cashtrack.cash_track.service.CommonService;
 import com.cashtrack.cash_track.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +25,7 @@ public class RegisterController {
     // Register member
     @RequestMapping(value = "/join", method = RequestMethod.POST)
     public void joinMember(@RequestBody String param){
-        HashMap<String, Object> paramsMap = cmmService.jsonToString(param);
-        registerService.joinMember(paramsMap);
+        UserSheet userSheet = new UserSheet();
+        registerService.joinMember(userSheet);
     }
 }
