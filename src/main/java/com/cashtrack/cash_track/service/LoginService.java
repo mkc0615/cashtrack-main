@@ -26,12 +26,4 @@ public class LoginService implements UserDetailsService {
 
         return new UserDetailComponents(user);
     }
-
-
-//    public User findOne(){
-//        User thisUser = new User();
-//        return thisUser;
-//    }
-
-
 }

@@ -22,8 +22,10 @@ public class LoginController {
     CommonService cmmService;
 
     @RequestMapping("/login")
-    public String loginSequence(@RequestBody String param, HttpServletRequest request, Model model){
+    public String loginSequence(@RequestBody String param){
 
         return "Login Page reached";
     }
+
+
 }
