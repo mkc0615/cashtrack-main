@@ -24,16 +24,6 @@ public class LoginController {
     @RequestMapping("/login")
     public String loginSequence(@RequestBody String param, HttpServletRequest request, Model model){
 
-        HashMap<String, Object> thisUser = cmmService.jsonToString(param);
-        User user = new User();
-
-        int loginResult = loginService.loginCheck(user);
-
-        // check login process
-        if(loginResult == 0){
-            return "success";
-        }else{
-            return "fail";
-        }
+        return "Login Page reached";
     }
 }

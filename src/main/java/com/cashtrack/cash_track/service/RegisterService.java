@@ -31,18 +31,19 @@ public class RegisterService {
 
         newUser.createUser(userSheet.getUserId(), userSheet.getUserPw(), thisDate);
 
-        int resultInt = userRepository.insertUser(newUser);
-
+        // int resultInt = userRepository.insertUser(newUser);
+        int resultInt = 0;
         return resultInt;
     }
 
     // Modify member
     public int modifyMember(){
-        User thisUser = userRepository.findOne();
+        // User thisUser = userRepository.findOne();
 
         // modify set user
 
-        int resultInt = userRepository.insertUser(thisUser);
+        // int resultInt = userRepository.insertUser(thisUser);
+        int resultInt = 0;
         return resultInt;
     }
 

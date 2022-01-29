@@ -2,16 +2,16 @@ package com.cashtrack.cash_track.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 
-@Entity
 @Getter
+@Entity
 @NoArgsConstructor
 public class User {
 
@@ -21,6 +21,8 @@ public class User {
 
     private String userId;
     private String userPw;
+
+    private String role;
 
     private LocalDate startDate;
     private LocalDate endDate;
@@ -34,7 +36,7 @@ public class User {
                           ){
         this.userId = userId;
         this.userPw = userPw;
-
+        this.role = "user";
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         this.startDate = LocalDate.parse(startDateStr, dtf);

@@ -2,28 +2,36 @@ package com.cashtrack.cash_track.service;
 
 import com.cashtrack.cash_track.domain.User;
 import com.cashtrack.cash_track.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
+import com.cashtrack.cash_track.service.components.UserDetailComponents;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-@RequiredArgsConstructor
-public class LoginService {
+public class LoginService implements UserDetailsService {
 
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    public int loginCheck(User user){
+    @Override
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException{
 
-        User thisUser = userRepository.findOne();
+        User user = userRepository.findByUserId(userId);
 
-        if(user.getUserNo() != thisUser.getUserNo()){
-            return 1;
-        }else if(user.getUserId() != thisUser.getUserId()){
-            return 1;
-        }else if(user.getUserPw() != thisUser.getUserPw()){
-            return 1;
+        if(user == null){
+            throw new UsernameNotFoundException("User Not Found");
         }
 
-        return 0;
+        return new UserDetailComponents(user);
     }
+
+
+//    public User findOne(){
+//        User thisUser = new User();
+//        return thisUser;
+//    }
+
 
 }
