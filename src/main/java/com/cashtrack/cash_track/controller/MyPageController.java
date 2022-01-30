@@ -7,6 +7,7 @@ import com.cashtrack.cash_track.domain.api.SaveAccount;
 import com.cashtrack.cash_track.domain.api.Stock;
 import com.cashtrack.cash_track.service.MyPageService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -25,7 +26,13 @@ public class MyPageController {
     @CrossOrigin("*")
     public Book myPage(){
         int userNo = 1;
-        return pageService.getMyBook(1);
+
+        Book myBook = pageService.getMyBook(1);
+
+        // model.addAttribute("book", myBook);
+
+        return myBook;
+        // return "myPage/book";
     }
 
     // 예적금 추가

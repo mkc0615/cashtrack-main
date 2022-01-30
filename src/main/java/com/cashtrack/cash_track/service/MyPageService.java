@@ -40,7 +40,7 @@ public class MyPageService {
 
     // Get Savings
     public List<SaveAccount> getAccountList(int userNo){
-        ResponseEntity<UserSavingList> response = restTemplate.getForEntity("http://cashtrack-savings/saving/mine/"+userNo, UserSavingList.class);
+        ResponseEntity<UserSavingList> response = restTemplate.getForEntity("http://cashtrack-savings/saving/list/"+userNo, UserSavingList.class);
         return response.getBody().getSavingsList();
     }
 
@@ -52,7 +52,7 @@ public class MyPageService {
 
     // Get Stocks
     public List<Stock> getStockList(int userNo){
-        ResponseEntity<UserStockList> response = restTemplate.getForEntity("http://cashtrack-savings/stock/mine/"+userNo, UserStockList.class);
+        ResponseEntity<UserStockList> response = restTemplate.getForEntity("http://cashtrack-savings/stock/list/"+userNo, UserStockList.class);
         return response.getBody().getStockList();
     }
 
@@ -64,7 +64,7 @@ public class MyPageService {
 
     // Get Loans
     public List<Loan> getLoanList(int userNo){
-        ResponseEntity<UserLoanList> response = restTemplate.getForEntity("http://cashtrack-loans/loan/mine/"+userNo, UserLoanList.class);
+        ResponseEntity<UserLoanList> response = restTemplate.getForEntity("http://cashtrack-loans/loan/list/"+userNo, UserLoanList.class);
         return response.getBody().getLoanList();
     }
 
