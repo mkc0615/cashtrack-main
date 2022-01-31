@@ -1,6 +1,7 @@
 package com.cashtrack.cash_track.controller;
 
 import com.cashtrack.cash_track.domain.Book;
+import com.cashtrack.cash_track.domain.HistoryLog;
 import com.cashtrack.cash_track.domain.InfoSheet;
 import com.cashtrack.cash_track.domain.api.Loan;
 import com.cashtrack.cash_track.domain.api.SaveAccount;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/myPage")
@@ -57,6 +60,12 @@ public class MyPageController {
         Loan newLoan = new Loan();
         newLoan.createLoanEntry(1, 500000, 0.08, 200000, "2022-01-25"); // placeholder
         return pageService.addLoan(newLoan);
+    }
+
+    @GetMapping("/historyLog")
+    @CrossOrigin("*")
+    public List<HistoryLog> historyLog(){
+        return pageService.getHistory();
     }
 
     @GetMapping("/investInfo")

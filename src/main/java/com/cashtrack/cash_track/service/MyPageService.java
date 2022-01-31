@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
 
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -74,6 +75,13 @@ public class MyPageService {
         return response.getBody();
     }
 
+    // History log
+    public List<HistoryLog> getHistory(){
+        List<HistoryLog> currentLog = new ArrayList<>();
+        return currentLog;
+    }
+
+    // get investment info
     public InfoSheet getInvestInfo() {
         InfoSheet info = new InfoSheet();
 
