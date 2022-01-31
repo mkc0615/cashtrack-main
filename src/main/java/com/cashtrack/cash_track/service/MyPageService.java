@@ -75,7 +75,14 @@ public class MyPageService {
         return response.getBody();
     }
 
-    // History log
+    // Add history
+    public int addHistory(HistoryLog historyLog){
+        int resultInt = 0;
+
+        return resultInt;
+    }
+
+    // get History log
     public List<HistoryLog> getHistory(){
         List<HistoryLog> currentLog = new ArrayList<>();
         return currentLog;

@@ -1,11 +1,16 @@
 package com.cashtrack.cash_track.domain;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 @Entity
+@Getter
+@RequiredArgsConstructor
 public class HistoryLog {
 
     @Id
@@ -15,6 +20,7 @@ public class HistoryLog {
     private String entryType;
     private String entryDivision;
     private int entryAmount;
+    private String entryDetail;
     private LocalDate inputDate;
 
     public void createEntry(String entryDateStr, String entryType, String entryDivision, int entryAmount){
@@ -23,6 +29,7 @@ public class HistoryLog {
         this.entryType = entryType;
         this.entryDivision = entryDivision;
         this.entryAmount = entryAmount;
+        this.entryDetail = entryDetail;
         this.inputDate = LocalDate.now();
     }
 
@@ -34,6 +41,7 @@ public class HistoryLog {
                 ", entryType='" + entryType + '\'' +
                 ", entryDivision='" + entryDivision + '\'' +
                 ", entryAmount=" + entryAmount +
+                ", entryDetail='" + entryDetail + '\'' +
                 ", inputDate=" + inputDate +
                 '}';
     }
