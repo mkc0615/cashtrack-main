@@ -3,8 +3,7 @@ package com.cashtrack.cash_track.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -15,6 +14,10 @@ public class HistoryLog {
 
     @Id
     private int entryNo;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userNo")
+    private User userNo;
 
     private LocalDate entryDate;
     private String entryType;

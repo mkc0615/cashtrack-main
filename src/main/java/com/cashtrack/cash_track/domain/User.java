@@ -7,11 +7,15 @@ import lombok.RequiredArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-@Getter
 @Entity
+@Getter
 @NoArgsConstructor
 public class User {
 
@@ -26,6 +30,9 @@ public class User {
 
     private LocalDate startDate;
     private LocalDate endDate;
+
+    @OneToMany(mappedBy = "userNo")
+    List<HistoryLog> historyLogs = new ArrayList<>();
 
     private LocalDate inputDate;
 
