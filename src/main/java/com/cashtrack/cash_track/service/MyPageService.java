@@ -83,8 +83,17 @@ public class MyPageService {
     }
 
     // get History log
-    public List<HistoryLog> getHistory(){
+    public List<HistoryLog> getHistory(int userNo){
+        ResponseEntity<UserHistoryLog> savingsLog = restTemplate.getForEntity("http://cashtrack-savings/saving/history/"+userNo, UserHistoryLog.class);
+        ResponseEntity<UserHistoryLog> stocksLog = restTemplate.getForEntity("http://cashtrack-savings/stock/history/"+userNo, UserHistoryLog.class);
+        ResponseEntity<UserHistoryLog> loansLog = restTemplate.getForEntity("http://cashtrack-loans/loan/history/"+userNo, UserHistoryLog.class);
+
         List<HistoryLog> currentLog = new ArrayList<>();
+
+        currentLog.addAll(savingsLog.getBody().getHistoryList());
+        currentLog.addAll(stocksLog.getBody().getHistoryList());
+        currentLog.addAll(loansLog.getBody().getHistoryList());
+
         return currentLog;
     }
 

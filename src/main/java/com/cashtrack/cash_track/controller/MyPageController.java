@@ -64,8 +64,8 @@ public class MyPageController {
 
     @GetMapping("/historyLog")
     @CrossOrigin("*")
-    public List<HistoryLog> historyLog(){
-        return pageService.getHistory();
+    public List<HistoryLog> historyLog(int userNo){
+        return pageService.getHistory(userNo);
     }
 
     @GetMapping("/investInfo")

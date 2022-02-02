@@ -26,9 +26,10 @@ public class HistoryLog {
     private String entryDetail;
     private LocalDate inputDate;
 
-    public void createEntry(String entryDateStr, String entryType, String entryDivision, int entryAmount){
+    public void createEntry(User userNo, String entryDateStr, String entryType, String entryDivision, int entryAmount){
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         this.entryDate = LocalDate.parse(entryDateStr, dtf);
+        this.userNo = userNo;
         this.entryType = entryType;
         this.entryDivision = entryDivision;
         this.entryAmount = entryAmount;
