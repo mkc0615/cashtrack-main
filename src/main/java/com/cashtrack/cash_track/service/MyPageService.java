@@ -75,11 +75,22 @@ public class MyPageService {
         return response.getBody();
     }
 
-    // Add history
-    public int addHistory(HistoryLog historyLog){
-        int resultInt = 0;
+    // Add saving history
+    public int addSavingHistory(HistoryLog historyLog){
+        ResponseEntity<Integer> response = restTemplate.postForEntity("http://cashtrack-savings/saving/history/add", historyLog, Integer.class);
+        return response.getBody();
+    }
 
-        return resultInt;
+    // Add saving history
+    public int addStockHistory(HistoryLog historyLog){
+        ResponseEntity<Integer> response = restTemplate.postForEntity("http://cashtrack-savings/stock/history/add", historyLog, Integer.class);
+        return response.getBody();
+    }
+
+    // Add saving history
+    public int addLoanHistory(HistoryLog historyLog){
+        ResponseEntity<Integer> response = restTemplate.postForEntity("http://cashtrack-loans/loan/history/add", historyLog, Integer.class);
+        return response.getBody();
     }
 
     // get History log
