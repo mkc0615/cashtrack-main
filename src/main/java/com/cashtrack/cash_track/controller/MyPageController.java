@@ -28,9 +28,9 @@ public class MyPageController {
     @GetMapping("/book")
     @CrossOrigin("*")
     public Book myPage(){
-        int userNo = 1;
+        String userId = "mkc0615";
 
-        Book myBook = pageService.getMyBook(1);
+        Book myBook = pageService.getMyBook(userId);
 
         // model.addAttribute("book", myBook);
 

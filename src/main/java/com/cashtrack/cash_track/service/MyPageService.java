@@ -2,6 +2,7 @@ package com.cashtrack.cash_track.service;
 
 import com.cashtrack.cash_track.domain.*;
 import com.cashtrack.cash_track.domain.api.*;
+import com.cashtrack.cash_track.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +21,14 @@ public class MyPageService {
 
     private final RestTemplate restTemplate;
 
+    UserRepository userRepository;
+
     // Get Book
-    public Book getMyBook(int userNo){
-        User user = getUser();
-        List<SaveAccount> thisSaveAcc = getAccountList(userNo);
-        List<Stock> thisStock = getStockList(userNo);
-        List<Loan> thisLoan = getLoanList(userNo);
+    public Book getMyBook(String userId){
+        User user = getUser(userId);
+        List<SaveAccount> thisSaveAcc = getAccountList(user.getUserNo());
+        List<Stock> thisStock = getStockList(user.getUserNo());
+        List<Loan> thisLoan = getLoanList(user.getUserNo());
 
         Book book = new Book();
         book.createBookEntry(user, thisSaveAcc, thisStock, thisLoan);
@@ -33,9 +36,9 @@ public class MyPageService {
     }
 
     // Get User
-    public User getUser(){
-        User user = new User();
-        user.createUser("mkc0615", "12345", "2021-12-01"); // placeholder
+    public User getUser(String userId){
+        User user = userRepository.findByUserId(userId);
+
         return user;
     }
 

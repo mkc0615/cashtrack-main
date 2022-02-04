@@ -12,5 +12,6 @@ public class UserSheet {
 
     private String userId;
     private String userPw;
+    private String startDateStr;
 
 }
