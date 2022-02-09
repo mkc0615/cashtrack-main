@@ -24,7 +24,6 @@ public class RegisterService {
 
         User newUser = new User();
 
-
         // set user
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String thisDate = LocalDate.now().format(dtf);
