@@ -25,9 +25,7 @@ public class User {
 
     private String userId;
     private String userPw;
-
     private String role;
-
     private LocalDate startDate;
     private LocalDate endDate;
 
@@ -37,10 +35,7 @@ public class User {
     private LocalDate inputDate;
 
     // 내부 생성자 메서드
-    public void createUser(String userId,
-                           String userPw,
-                           String startDateStr
-                          ){
+    public void createUser(String userId, String userPw, String startDateStr){
         this.userId = userId;
         this.userPw = userPw;
         this.role = "user";

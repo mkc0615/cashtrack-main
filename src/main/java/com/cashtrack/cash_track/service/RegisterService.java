@@ -22,17 +22,17 @@ public class RegisterService {
     // Join member
     public int joinMember(UserSheet userSheet){
 
-        User newUser = new User();
-
         // set user
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String thisDate = LocalDate.now().format(dtf);
 
+        // user 저장
+        User newUser = new User();
         newUser.createUser(userSheet.getUserId(), userSheet.getUserPw(), thisDate);
 
-        // int resultInt = userRepository.insertUser(newUser);
-        int resultInt = 0;
-        return resultInt;
+        // 저장된 user 번호 확인하고 반환
+        User thisUser = userRepository.findByUserId(newUser.getUserId());
+        return thisUser.getUserNo();
     }
 
     // Modify member
