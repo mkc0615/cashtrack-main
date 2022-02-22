@@ -8,9 +8,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class MainExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(value={ BusinessException.class })
+    @ExceptionHandler(value={ InvalidParamException.class })
     protected ResponseEntity<ErrorResponse> handleBusinessException(){
         return ErrorResponse.createResponseEntity(ErrorEnum.INVALID_PARAMETER);
+    }
+
+    @ExceptionHandler(value={ NoDataException.class })
+    protected ResponseEntity<ErrorResponse> handleNoDataException(){
+        return ErrorResponse.createResponseEntity(ErrorEnum.DATA_NOT_FOUND);
     }
 
 }
