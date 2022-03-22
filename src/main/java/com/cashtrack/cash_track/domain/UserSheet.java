@@ -14,4 +14,10 @@ public class UserSheet {
     private String userPw;
     private String startDateStr;
 
+    public UserSheet(String userId, String userPw, String startDateStr){
+        this.userId = userId;
+        this.userPw = userPw;
+        this.startDateStr = startDateStr;
+    }
+
 }
